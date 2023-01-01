@@ -8,10 +8,12 @@ public class Main {
 
         TaskArrayList array = new TaskArrayList();
 
-        array.printArray();
-        array.addToArray();
-        array.getFromArrayAtIndex();
-        array.addToArrayAtIndex();
-        array.deleteFromArrayAtIndex();
+        int[] array1 = {1, 5, 9, 14};
+
+        array.printArray(array1);
+        array.addToArray(array1, 5);
+        array.getFromArrayAtIndex(array1, 1);
+        array.addToArrayAtIndex(array1, 0, 8);
+        array.deleteFromArrayAtIndex(array1, 2);
     }
 }

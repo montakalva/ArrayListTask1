@@ -4,47 +4,53 @@ import java.util.Arrays;
 
 public class TaskArrayList {
 
-    int[] array1 = {1, 5, 9, 14};
-    int [] arrayAdd = new int[array1.length + 1];
-    int [] arrayDeleted = new int[array1.length -1];
-    int number1 = 20;
-    int index = 3;
-
-    public void printArray() {
+    public void printArray(int [] array1) {
         System.out.println("Array before manipulations: " + Arrays.toString(array1));
     }
 
-    public void addToArray(){
+    public int[] addToArray(int [] array1, int number1){
+        int [] arrayAdded = new int[array1.length + 1];
+        System.out.println("Array1: " + Arrays.toString(array1));
         for(int i = 0; i < array1.length; i++){
-            arrayAdd[i] = array1[i];
+            arrayAdded[i] = array1[i];
         }
-        arrayAdd[array1.length] = number1;
-        System.out.println("Array after adding: " + Arrays.toString(arrayAdd));
+        arrayAdded[array1.length] = number1;
+        System.out.println("Array after adding: " + Arrays.toString(arrayAdded));
+        return arrayAdded;
     }
 
-    public void addToArrayAtIndex(){
+    public int [] addToArrayAtIndex(int [] array1, int index, int number1){
         int i = 0;
+        int [] arrayAdded = new int[array1.length + 1];
         while(i != index){
-            arrayAdd[i] = array1[i];
+            arrayAdded[i] = array1[i];
             i++;
         }
-        arrayAdd[index] = number1;
+        arrayAdded[index] = number1;
 
         i = index + 1;
-        while(i < arrayAdd.length){
-            arrayAdd[i] = array1[i-1];
+        while(i < arrayAdded.length){
+            arrayAdded[i] = array1[i-1];
             i++;
         }
-        System.out.println("Array after adding at index: " + Arrays.toString(arrayAdd));
+        System.out.println("Array after adding at index: " + Arrays.toString(arrayAdded));
+        return arrayAdded;
     }
 
-    public void getFromArrayAtIndex(){
+    public int getFromArrayAtIndex(int [] array1, int index){
+        int searchedNumber = 0;
         for(int i = 0; i < array1.length; i++){
-            if(i == index) System.out.println("Item found: " + array1[i]);
+            if(i == index) {
+                searchedNumber = array1[i];
+                System.out.println("Item found: " + array1[i]);
+                return searchedNumber;
+            }
         }
+        return searchedNumber;
     }
 
-    public void deleteFromArrayAtIndex(){
+    public int [] deleteFromArrayAtIndex(int [] array1, int index){
+        int [] arrayDeleted = new int[array1.length -1];
         int i = 0;
         while(i < index){
             arrayDeleted[i] = array1[i];
@@ -57,5 +63,6 @@ public class TaskArrayList {
             i++;
         }
         System.out.println("Array after deleting at index: " + Arrays.toString(arrayDeleted));
+        return arrayDeleted;
     }
 }
